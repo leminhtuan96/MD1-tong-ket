@@ -31,6 +31,8 @@ class Rectangle {
         this.checkvacham();
     }
 
+
+
     checkvacham() {
         if (this._x <= 0) {
             this._x += this._width;

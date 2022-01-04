@@ -27,6 +27,9 @@ window.addEventListener("keyup", function (event) {
             break;
     }
 })
+
+
+
 window.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case 37:

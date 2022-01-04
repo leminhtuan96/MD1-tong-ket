@@ -71,6 +71,10 @@ class Circle {
 
     }
 
+
+
+
+
     check() {
         this.player = (this._x + this._radius < this._canvas.width / 2);
         if (collision(circle, this.player)) {
