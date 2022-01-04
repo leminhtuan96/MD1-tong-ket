@@ -20,7 +20,7 @@ class Rectangle {
 
     }
 
-    moveLefh() {
+    moveLeft() {
         this._x -= 7;
         this.checkvacham();
 
@@ -28,7 +28,7 @@ class Rectangle {
 
     moveRight() {
         this._x += 7;
-        this.checkvacham();
+       this.checkvacham();
     }
 
 
