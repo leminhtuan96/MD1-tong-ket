@@ -2,10 +2,12 @@ class Rectangle {
     constructor(x, y, width, height) {
         this._x = x;
         this._y = y;
+        this.speed = 5
         this._width = width;
         this._height = height;
         this._canvas = document.getElementById("myCanvas");
         this._ctx = this._canvas.getContext("2d");
+        this.dir = "";
     }
 
     draw() {
@@ -20,24 +22,17 @@ class Rectangle {
 
     }
 
-    moveLeft() {
-        this._x -= 7;
-        this.checkvacham();
+    move(canvas) {
+        switch (this.dir) {
+            case "left":
+                if (this._x > 0)
+                    this._x -= this.speed;
+                    break;
 
-    }
-
-    moveRight() {
-        this._x += 7;
-       this.checkvacham();
-    }
-
-
-
-    checkvacham() {
-        if (this._x <= 0) {
-            this._x += this._width;
-        } else if (this._x + this._width >= this._canvas.width) {
-            this._x -= this._width;
+            case "right":
+                if (this._x + this._width < this._canvas.width)
+                    this._x += this.speed;
+                break;
         }
     }
 }
