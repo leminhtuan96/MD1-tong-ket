@@ -2,6 +2,8 @@ let circle = new Circle(150, 100, 10);
 
 let rec = new Rectangle(100, 480, 80, 10);
 
+
+
 // let startX = (canvas.width/2) - 20;
 // let startY = canvas.height - 60;
 //
@@ -10,28 +12,35 @@ let rec = new Rectangle(100, 480, 80, 10);
 
 setInterval(play, 50)
 
-function movePlayer(evt) {
-    switch (evt.key) {
-        case 37:
-            rec.dir = "left";
-            break;
-        case 39:
-            rec.dir = "right";
-            break;
-    }
-}
-
-window.addEventListener("keydown", function (event) {
+window.addEventListener('keydown', function (event) {
     switch (event.keyCode) {
         case 37:
-            rec.dir = "left";
+            rec.moveLeft();
             break;
         case 39:
-            rec.dir = "right";
-            break;
+            rec.moveRight();
+            break
     }
-});
-rec.move(canvas);
+
+
+})
+
+
+
+
+    // function movePlayer(event) {
+    //     switch (event.keyCode) {
+    //         case 37:
+    //             rec.dir = "left";
+    //             break;
+    //         case 39:
+    //             rec.dir = "right";
+    //             break;
+    //     }
+    // }
+
+
+
 
 // function checkCollision() {
 //     let left1 = this._x;
@@ -52,13 +61,13 @@ rec.move(canvas);
 //     }
 // }
 
-
+//window.addEventListener("keydown", movePlayer)
 
 
 function play() {
     circle.move();
     rec.draw();
     circle.draw();
-    checkCollision();
-    drawBricks();
+   // checkCollision();
+    rec.move(canvas);
 }

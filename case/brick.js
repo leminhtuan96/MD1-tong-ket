@@ -1,43 +1,38 @@
-const brick = {
-    row: 3,
-    column: 5,
-    width: 55,
-    height: 20,
-    offsetLeft: 20,
-    offsetTop: 20,
-    marginTop: 40,
-    fillColor: "#0147f1",
-    strokeColor: "#c91111",
-}
-
-let bricks = [];
-// for (let r = 0; r < brick.row; r++) {
-//     bricks[r] = [];
-//     for (let c = 0; c < brick.column; c++) {
-//         bricks[c][r] = {
-//             x: c * (brick.width + brick.offsetLeft) + brick.offsetLeft,
-//             y: r * (brick.height + brick.offsetTop) + brick.offsetTop + brick.marginTop,
-//             status: true
-//         }
-//     }
-//}
-
-function drawBricks() {
-    for (let r = 0; r < brick.row; r++) {
-        for (let c = 0; c < brick.column; c++) {
-            if (bricks[r][c].status == 1) {
-                let x1 = c * (brick.width + brick.marginTop) + brick.offsetLeft;
-                let y1 = r * (brick.height + brick.marginTop) + brick.offsetTop;
-                bricks[r][c].x = x1;
-                bricks[r][c].y = y1;
-                ctx.beginPath();
-                ctx.rect(x1, y1,brick.width, brick.height);
-                ctx.fillStyle = "#0095DD";
-                ctx.fill();
-                ctx.closePath();
+class Viengach {
+    constructor(x,y,width,height) {
+            this.row = x;
+            this.column = y;
+            this.width = width;
+            this.height = height;
+            this.offsetLeft = 20;
+            this.offsetTop = 20;
+            this.marginTop = 40;
+        this.canvas = document.getElementById("myCanvas");
+        this.ctx = this.canvas.getContext("2d");
+    }
+    draw() {
+        for (let r = 0; r < this.row; r++) {
+            for (let c = 0; c < this.column; c++) {
+                if (bricks[r][c].status == 1) {
+                    let x1 = c * (this.width + this.marginTop) + this.offsetLeft;
+                    let y1 = r * (this.height + this.marginTop) + this.offsetTop;
+                    bricks[r][c].x = x1;
+                    bricks[r][c].y = y1;
+                    this.ctx.beginPath();
+                    this.ctx.rect(x1, y1,this.width, this.height);
+                    this.ctx.fillStyle = "#0095DD";
+                    this.ctx.fill();
+                    this.ctx.closePath();
+                }
             }
         }
     }
 }
-
+let bricks = [];
+for(let c=0; c<this.column; c++) {
+    bricks[c] = [];
+    for(let r=0; r<this.row; r++) {
+        bricks[r][c] = { x: 0, y: 0, status: 1 };
+    }
+}
 

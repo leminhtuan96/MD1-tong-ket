@@ -5,7 +5,6 @@ class Circle {
         this._radius = radius;
         this._canvas = document.getElementById("myCanvas");
         this._ctx = this._canvas.getContext("2d");
-        this.speed = 10;
         this.velocityX = 10;
         this.velocityY = 10;
     }
@@ -26,7 +25,7 @@ class Circle {
         this.x = this._canvas.width / 2;
         this.y = rec._y - this._radius;
         this.velocityX = 3 * (Math.random() * 2 - 1);
-        this.velocityY = -5;
+        this.velocityY = -10;
     }
 
     move() {
@@ -40,13 +39,14 @@ class Circle {
         if (this._y - this._radius < 0) {
             this.velocityY = -this.velocityY;
         }
-        // if (this._y + this._radius > rec._y) {
+
+        if (this._y + this._radius > this._canvas.height) {
+            alert("game Over");
+             this.resetBall();
+        }
+        // else if (this._y + this._radius > rec._y) {
         //     this.velocityY = -this.velocityY
         // }
-        else   if (this._y + this._radius > this._canvas.height) {
-            alert("game Over");
-            this.resetBall();
-        }
     }
 }
 

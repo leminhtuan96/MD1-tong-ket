@@ -22,18 +22,31 @@ class Rectangle {
 
     }
 
-    move(canvas) {
-        switch (this.dir) {
-            case "left":
-                if (this._x > 0)
-                    this._x -= this.speed;
-                    break;
 
-            case "right":
-                if (this._x + this._width < this._canvas.width)
-                    this._x += this.speed;
-                break;
-        }
+
+    moveLeft() {
+        if (this._x > 0)
+        this._x -= 10;
     }
+
+    moveRight() {
+        if (this._x + this._width < this._canvas.width)
+        this._x += 10;
+    }
+
+
+    // move() {
+    //     switch (this.dir) {
+    //         case "left":
+    //             if (this._x > 0)
+    //                 this._x -= this.speed;
+    //                 break;
+    //
+    //         case "right":
+    //             if (this._x + this._width < this._canvas.width)
+    //                 this._x += this.speed;
+    //             break;
+    //     }
+    // }
 }
 
